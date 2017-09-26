@@ -19,11 +19,63 @@
 
 // alert(answer + " is the correct answer");
 
+var boxesArray = [
+	{
+		box: "box1",
+		correct: false,
+		text: "This is the correct box!",
+		image: "img/smiley-face.jpeg"
+	},
+	{
+		box: "box2",
+		correct: false,
+		text: "This is the correct box!",
+		image: "img/smiley-face.jpeg"
+	}
+];
+
+var randonNumber = Math.floor(Math.random() * 2) + 1;
+console.log(randonNumber);
 
 var answer;
+// if (randonNumber === 1) {
+// 	answer = "box1"
+// } else if (randonNumber === 2) {
+// 	answer = "box2"
+// }
 
-function checkAnswer() {
+if (randonNumber === 1) {
+	boxesArray[0].correct = true
+	answer = "box1"
+} else if (randonNumber === 2) {
+	boxesArray[1].correct = true
+	answer = "box2"
+}
+console.log(boxesArray[0].correct);
+console.log(boxesArray[1].correct);
+
+// function checkGuess() {
+//     var userInput = document.getElementById("userInput").value;
+//         if (userInput === answer) {
+//        	document.getElementById("imageBox1").src = "img/smiley-face.jpeg";
+//     }
+// }
+
+function checkGuess() {
     var userInput = document.getElementById("userInput").value;
-        if (userInput === answer) {
-       	document.getElementById("zodiacImage").src = zodiac[i].image;
+    for (i = 0; i < boxesArray.length; i++) {
+        if (userInput === answer && boxesArray[0].correct === true) {
+        	document.getElementById("imageBox1").src = "img/smiley-face.jpeg";
+        } else if (userInput === answer && boxesArray[1].correct === true) {
+        	document.getElementById("imageBox2").src = "img/smiley-face.jpeg";
         }
+    }
+}
+
+
+
+
+
+
+
+

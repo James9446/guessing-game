@@ -18,17 +18,29 @@
 
 		<section>
 			<div class="container">
-				<div class="row">
-					<div id="box1"></div>
-					<div id="box2"></div>
+				<div class="row justify-content-around">
+					<div class="box text-center col-sm-4" id="box1">
+						<h2 id="textBox1">Box 1</h2>
+						<img id="imageBox1">
+					</div>
+					<div class="box text-center col-sm-4" id="box2">
+						<h2 id="textBox1">Box 2</h2>
+						<img id="imageBox2">
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<section>
-			<h1></h1>
-			<input id="userInput" placeholder="Please enter guess">
-			<button onClick="checkGuess()">Enter</button>
+			<div class="container">
+				<div class="row justify-content-around">
+					<div class="col-sm-3">
+						<h1></h1>
+						<input id="userInput" placeholder="Please enter guess">
+						<button onClick="checkGuess()">Enter</button>
+					</div>
+				</div><!-- /row -->
+			</div><!-- /container -->
 		</section>
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
