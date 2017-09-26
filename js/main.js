@@ -1,29 +1,70 @@
-// Number Guessing Game from different project - jumping off point
-// var answer = Math.floor(Math.random() * 100) + 1;
-// var guess = prompt("Enter a number between 1 - 100");
-// var attemptsLeft = 7;
+// This is an array of objects for storing information about the boxes
+var boxesArray = [
+	{
+		box: "box1",
+		correct: false,
+		text: "Correct!",
+		textWrong: "Sorry",
+		image: "img/smiley-face.jpeg",
+		imageWrong: "img/frowny-face.jpeg"
+	},
+	{
+		box: "box2",
+		correct: false,
+		text: "Nice!",
+		textWrong: "wrong!",
+		image: "img/smiley-face.jpeg",
+		imageWrong: "img/frowny-face.jpeg"
+	}
+];
 
-// while(guess != answer) {
-// 	attemptsLeft--;
-// 	if(attemptsLeft > 0) {
-// 		if (guess < answer) {
-// 			 guess = prompt(guess + " is less than the answer. You have " + attemptsLeft + " attempts left")
-// 		} else if (guess > answer) {
-// 			guess = prompt(guess + " is greater than the answer. You have " + attemptsLeft + " attempts left")
-// 		}
-// 	} else {
-// 		alert("Loser!")
-// 		break;
-// 	}
-// }
+// This variable for storing a randomly generated whole number
+// Current number range between 1 - 2 
+var randonNumber = Math.floor(Math.random() * 2) + 1;
+//Test purpose console.log
+console.log(randonNumber);
 
-// alert(answer + " is the correct answer");
-
-
+// This variable is for storing the answer a user must type
 var answer;
 
-function checkAnswer() {
+// This conditional is for assigning the random number to a box
+// and it assigns a value for the answer variable
+if (randonNumber === 1) {
+	boxesArray[0].correct = true
+	answer = "box1"
+} else if (randonNumber === 2) {
+	boxesArray[1].correct = true
+	answer = "box2"
+}
+
+//Test purpose console.log 
+console.log(boxesArray[0].correct);
+console.log(boxesArray[1].correct);
+
+
+// This function checks the user input and reveals if the correct answer been selected or not
+function checkGuess() {
     var userInput = document.getElementById("userInput").value;
-        if (userInput === answer) {
-       	document.getElementById("zodiacImage").src = zodiac[i].image;
-        }
+    if (userInput === answer && boxesArray[0].correct === true) {
+    	document.getElementById("imageBox1").src = boxesArray[0].image;
+    	document.getElementById("textBox1").textContent = boxesArray[0].text;
+    	return
+    } else if (userInput === answer && boxesArray[1].correct === true) {
+    	document.getElementById("imageBox2").src = boxesArray[1].image;
+    	document.getElementById("textBox2").textContent = boxesArray[1].text;
+    	return
+    } else {
+    	document.getElementById("imageBox1").src = boxesArray[0].imageWrong;
+    	document.getElementById("imageBox2").src = boxesArray[1].imageWrong;
+    	document.getElementById("textBox1").textContent = boxesArray[0].textWrong;
+    	document.getElementById("textBox2").textContent = boxesArray[1].textWrong;
+    }
+}
+
+
+
+
+
+
+
+
